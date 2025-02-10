@@ -1,0 +1,264 @@
+@font-face {
+    font-family: "Nunito";
+    font-weight: 200 1000;
+    src: url("./font/Nunito-VariableFont_wght.ttf") format("truetype");
+}
+
+body {
+    font-family: sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    margin: 0;
+    min-height: 100vh;
+    background: url("https://images.unsplash.com/photo-1523762491722-c02dbe5cd9aa?q=15&w=1920&h=1080")
+        no-repeat center fixed;
+    background-color: black;
+    background-size: cover;
+    cursor: default;
+    user-select: text;
+}
+
+body:hover {
+    cursor: default;
+}
+
+.dim,
+.blur {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.dim {
+    background: rgba(0, 0, 0, 0.75);
+}
+
+.blur {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+a,
+.status-text {
+    text-decoration: none;
+    color: white;
+}
+
+.text {
+    text-align: center;
+    color: white;
+    flex-wrap: wrap;
+}
+
+.ascii {
+    white-space: pre;
+    margin-top: 7.5vh;
+    margin-left: 0.85vw;
+    font-size: 1.25rem;
+}
+
+.headline,
+.about {
+    margin-top: 5vh;
+}
+
+.headline {
+    font-size: 4rem;
+}
+
+.about {
+    font-size: 1.25rem;
+    max-width: 85%;
+}
+
+.rainbow {
+    animation: gradient 10s infinite;
+}
+
+@keyframes gradient {
+    0%,
+    to {
+        color: #ebbcba;
+    }
+    25% {
+        color: #c4a7e7;
+    }
+    50% {
+        color: #eb6f92;
+    }
+    75% {
+        color: #f6c177;
+    }
+}
+
+.link-container {
+    margin-top: 7.5vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 7.5%;
+}
+
+.links {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.refresh-icon {
+    cursor: pointer;
+    position: relative;
+    width: 17px;
+    height: 17px;
+    top: 0.15em;
+}
+
+.status {
+    margin-top: 7.5vh;
+    height: 200px;
+    margin-bottom: 0.5vh;
+}
+
+.status-headline {
+    margin-left: -0.25em;
+}
+
+.status-table {
+    width: 230px;
+    margin: 20px auto;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.ping-table {
+    text-align: center;
+}
+
+.buttons,
+.valid-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.button {
+    display: block;
+    width: 88px;
+    height: 31px;
+}
+
+.valid-buttons img {
+    display: block;
+}
+
+.tooltip {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.75);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    visibility: hidden;
+    pointer-events: none;
+    white-space: normal;
+    backdrop-filter: blur(1.5px);
+    transform: translateX(-50%);
+    text-align: center;
+    max-width: 12em;
+    display: none;
+}
+
+.tooltip::after {
+    content: "";
+    position: absolute;
+    bottom: -6.8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 7px solid rgba(0, 0, 0, 0.75);
+}
+
+.box {
+    border: 1px solid white;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+.status-table a {
+    position: relative;
+}
+
+.link-button::before,
+.link-button::after,
+.status-table a::before,
+.status-table a::after {
+    visibility: hidden;
+    color: white;
+    opacity: 0;
+    transition: opacity 125ms ease-in-out;
+    position: absolute;
+}
+
+.link-button:hover::before,
+.link-button:hover::after,
+.status-table a:hover::before,
+.status-table a:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+.status-table a::before,
+.link-button::before {
+    content: "[";
+    left: -0.7em;
+}
+
+.status-table a::after,
+.link-button::after {
+    content: "]";
+    right: -0.7em;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+}
+
+@media (min-width: 45em) {
+    .link-container {
+        flex-wrap: nowrap;
+    }
+}
+
+@media (max-width: 39em) {
+    #about-content div::before {
+        content: "· ";
+    }
+
+    .ascii {
+        margin-left: 3vw;
+    }
+}
+
+@media (max-width: 45em) {
+    .buttons {
+        display: grid;
+        grid-template-columns: repeat(4, auto);
+        justify-content: center;
+    }
+
+    .valid-buttons {
+        display: grid;
+    }
+}
