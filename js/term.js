@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     does electronics repairs, microsoldering,
     binary analysis and MCU programming
     soon to earn a vocational qualification in Mechatronics
-    a fan of self-hosting and somewhat of a data hoarder`;
+    somewhat of a data hoarder and a fan of self-hosting`;
   const buttonText = [
     "listening stats",
     "github",
@@ -40,9 +40,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const buttonTypingSpeed = 6;
 
   const asciiDelay = 0;
-  const headlineDelay = 375;
-  const aboutDelay = 400;
-  const buttonsDelay = 400;
+  const headlineDelay = 500;
+  const aboutDelay = 350;
+  const buttonsDelay = 350;
 
   statusblock.style.visibility = "hidden";
   statusblock.style.opacity = 0;
@@ -118,11 +118,10 @@ document.addEventListener("DOMContentLoaded", function () {
           container.appendChild(buttonElement);
 
           if (tooltips[buttonIndex]) {
-            // Ensure tooltip is created only once for each button
             if (!tooltipCache.has(buttonElement)) {
               const tooltipElement = document.createElement("div");
               tooltipElement.className = "tooltip";
-              tooltipElement.innerText = tooltips[buttonIndex] || ""; // Ensure valid tooltip text
+              tooltipElement.innerText = tooltips[buttonIndex] || "";
               tooltipElement.style.display = "none";
               document.body.appendChild(tooltipElement);
               tooltipCache.set(buttonElement, tooltipElement);
@@ -160,21 +159,23 @@ document.addEventListener("DOMContentLoaded", function () {
     const lines = aboutText.split("\n");
     let lineIndex = 0;
 
-    function typeLine() {
-      if (lineIndex < lines.length) {
-        const lineDiv = document.createElement("div");
-        aboutElement.appendChild(lineDiv);
+    setTimeout(() => {
+      function typeLine() {
+        if (lineIndex < lines.length) {
+          const lineDiv = document.createElement("div");
+          aboutElement.appendChild(lineDiv);
 
-        typeText(lines[lineIndex], lineDiv, aboutTypingSpeed, 0, () => {
-          lineIndex++;
-          typeLine();
-        });
-      } else if (callback) {
-        callback();
+          typeText(lines[lineIndex], lineDiv, aboutTypingSpeed, 0, () => {
+            lineIndex++;
+            typeLine();
+          });
+        } else if (callback) {
+          callback();
+        }
       }
-    }
 
-    typeLine();
+      typeLine();
+    }, aboutDelay);
   }
 
   typeText(asciiArt, asciiContainer, asciiTypingSpeed, asciiDelay, function () {

@@ -21,7 +21,9 @@ const urls = [
   },
 ];
 
-async function testPing() {
+let timeSincePing = 0;
+
+async function ping() {
   for (const { url, ping_id, status_id } of urls) {
     const pingCell = document.getElementById(ping_id);
     const statusCell = document.getElementById(status_id);
@@ -54,9 +56,19 @@ async function testPing() {
   }
 }
 
-document.getElementById("refresh-icon-id").addEventListener("click", testPing);
+function pingCooldown() {
+  const now = Date.now();
+  if (now - timeSincePing >= 750) {
+    timeSincePing = now;
+    ping();
+  }
+}
+
+document
+  .getElementById("refresh-icon-id")
+  .addEventListener("click", pingCooldown);
 
 window.onload = function () {
-  testPing();
-  setTimeout(testPing, 3600);
+  ping();
+  setTimeout(ping, 3600);
 };
