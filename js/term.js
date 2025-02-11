@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
           if (links[buttonIndex] !== "") {
             buttonElement.href = links[buttonIndex];
-            buttonElement.target = "_blank";
+            buttonElement.target = "";
           } else {
             buttonElement.onclick = (e) => e.preventDefault();
           }

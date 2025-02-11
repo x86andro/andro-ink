@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
         link: "https://www.debian.org/",
         tooltip: "this site runs on debian",
       },
-      { src: "linuxnow.gif", tooltip: "be free, use linux." },
+      { src: "linuxnow.gif", tooltip: "be free, use linux" },
       {
         src: "nano2.gif",
         link: "https://www.nano-editor.org/",
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
       { src: "ipv6-ready.png", tooltip: "this site is IPv6 ready" },
     ],
     [
-      { src: "cssdif.gif", tooltip: "it sometimes really is" },
+      { src: "cssdif.gif", tooltip: "sometimes it really is" },
       { src: "js-warning.gif", tooltip: "contains javascript!" },
       {
         src: "andro-ink.png",
