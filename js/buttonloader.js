@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
       { src: "fdb27094584d_ace_fl.png", tooltip: "asexual" },
       {
         src: "d1a125e05f09_rainbow_fl.png",
-        tooltip: "be proud of who you are",
+        tooltip: "🏳️‍🌈",
       },
     ],
     [
