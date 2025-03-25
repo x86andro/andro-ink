@@ -48,7 +48,7 @@ async function ping() {
       pingCell.textContent = "[ " + ping + "ms ]";
     } catch (error) {
       const errorImg = document.createElement("img");
-      errorImg.src = "img/error.png";
+      errorImg.src = "img/status/icons/unavailable.png";
       errorImg.alt = "";
       errorImg.classList.add("icon");
       pingCell.appendChild(errorImg);
