@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
         tooltip: "best viewed on: anything with a screen",
       },
       {
-        src: "piracy.gif",
+        src: "pir.gif",
         tooltip: "if buying isn't owning, then piracy isn't stealing",
       },
       { src: "paws.png", tooltip: ":3" },
